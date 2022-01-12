@@ -14,7 +14,6 @@ except ImportError as error:
 #status
 ok = f'{Fore.GREEN}[+]{Fore.RESET}'
 alert = f'{Fore.RED}[!]{Fore.RESET}'
-#from colorama import Fore
 
 
 def check_for_sudo():
@@ -36,7 +35,7 @@ def add_users(i):
             pass
         i += 1
     if i >= x:
-        print(f'{ok} Done adding users')
+        print(f'{ok} Created users')
 
 
 def expire_password(i):
@@ -50,7 +49,7 @@ def expire_password(i):
             pass
         i += 1
     if i >= x:
-        print(f'{ok} Done adding passwd expire date')
+        print(f'{ok} Added passwd expire date for users')
 
 
 def add_groups(i):
@@ -63,7 +62,7 @@ def add_groups(i):
             pass
         i += 1
     if i >= x:
-        print(f'{ok} Done adding groups')
+        print(f'{ok} Created groups')
 
 
 def add_users_to_groups(i):
@@ -72,7 +71,7 @@ def add_users_to_groups(i):
         os.popen(f'usermod -a user{i} -G group{i}')
         i += 1
     if i >= x:
-        print(f'{ok} Done adding users to group')
+        print(f'{ok} Added users to groups')
 
 
 def add_group_dirs(i):
@@ -84,7 +83,7 @@ def add_group_dirs(i):
         except FileExistsError:
             i += 1
     if i >= x:
-        print(f'{ok} Done adding group dirs')
+        print(f'{ok} Created group dirs')
 
 
 def set_perms_of_dir(i):
@@ -97,7 +96,7 @@ def set_perms_of_dir(i):
             pass
         i += 1
     if i >= x:
-        print(f'{ok} Done adding dirs to group')
+        print(f'{ok} Added dirs to groups')
 
 
 def make_files_in_dirs(i):
@@ -110,7 +109,7 @@ def make_files_in_dirs(i):
             pass
         i += 1
     if i >= x:
-        print(f'{ok} Done adding files')
+        print(f'{ok} Created files in group dirs')
 
 
 def main():
