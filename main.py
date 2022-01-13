@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import argparse
+from time import sleep
 
 #check if (non-default) packages are installed, if not install them
 try:
@@ -128,22 +129,28 @@ def main():
     parser.add_argument("-g", "--groups", help="--groups [number] | Creates [number] groups", type=int)
     parser.add_argument("-ug", "--user_to_group", help="move users to groups", type=int)
     parser.add_argument("-gd", "--group_dirs", help="Make dirs for groups", type=int)
-    parser.add_argument("-mf", "--make_files", help="Make files in dirs", type=int)
+    parser.add_argument("-mf", "--make_files", metavar='N', help="Make files in dirs", type=int)
     parser.add_argument("-r", "--remove", help="--remove [number] | Removes created files, folders, groups and users", type=int)
     args = parser.parse_args()
 
     if args.users:
         add_users(args.users)
+        sleep(1)
     if args.passwd:
         expire_password(args.passwd)
+        sleep(1)
     if args.groups:
         add_groups(args.groups)
+        sleep(1)
     if args.user_to_group:
         add_users_to_groups(args.user_to_group)
+        sleep(1)
     if args.group_dirs:
         add_group_dirs(args.group_dirs)
+        sleep(1)
     if args.make_files:
         make_files_in_dirs(args.make_files)
+        sleep(1)
     if args.remove:
         remove_everything(args.remove)
 
